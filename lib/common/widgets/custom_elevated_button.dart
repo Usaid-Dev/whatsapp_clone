@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/common/utils/coloors.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final double? buttonWidth;
@@ -23,7 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width - 100,
         child: ElevatedButton(
           onPressed: () {},
-          child: const Text('AGREE AND CONTINUE'),
+          child: Text(text),
         ),
       ),
     );
