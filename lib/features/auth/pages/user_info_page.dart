@@ -3,14 +3,14 @@ import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
 import 'package:whatsapp_clone/common/widgets/custom_elevated_button.dart';
 import 'package:whatsapp_clone/features/auth/widgets/custom_text_field.dart';
 
-class UserInfoPAge extends StatefulWidget {
-  const UserInfoPAge({super.key});
+class UserInfoPage extends StatefulWidget {
+  const UserInfoPage({super.key});
 
   @override
-  State<UserInfoPAge> createState() => _UserInfoPAgeState();
+  State<UserInfoPage> createState() => _UserInfoPageState();
 }
 
-class _UserInfoPAgeState extends State<UserInfoPAge> {
+class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

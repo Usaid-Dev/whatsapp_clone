@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/common/routes/routes.dart';
 import 'package:whatsapp_clone/common/utils/coloors.dart';
 import 'package:whatsapp_clone/common/widgets/custom_elevated_button.dart';
 import 'package:whatsapp_clone/features/welcome/widgets/language_button.dart';
 import 'package:whatsapp_clone/features/welcome/widgets/privacy_and_terms.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
-  @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
+  navigateToLoginPage(context) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      Routes.login,
+      (route) => false,
+    );
+  }
 
-class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +48,8 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
                 const PrivacyAndTerms(),
                 CustomElevatedButton(
-                    onPressed: () {}, text: 'AGREE AND CONTINUE'),
+                    onPressed: () => navigateToLoginPage(context),
+                    text: 'AGREE AND CONTINUE'),
                 const SizedBox(
                   height: 50,
                 ),
