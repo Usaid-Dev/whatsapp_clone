@@ -1,21 +1,22 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
 import 'package:whatsapp_clone/common/helper/show_alert_dialog.dart';
 import 'package:whatsapp_clone/common/utils/coloors.dart';
 import 'package:whatsapp_clone/common/widgets/custom_elevated_button.dart';
 import 'package:whatsapp_clone/common/widgets/custom_icon_button.dart';
+import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
 import 'package:whatsapp_clone/features/auth/widgets/custom_text_field.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   late TextEditingController countryNameController;
 
   late TextEditingController countryCodeController;
@@ -26,6 +27,8 @@ class _LoginPageState extends State<LoginPage> {
     final phoneNumber = phoneNumberController.text;
 
     final countryName = countryNameController.text;
+
+    final countryCode = countryCodeController.text;
 
     if (phoneNumber.isEmpty) {
       return showAlertDialog(
@@ -46,6 +49,10 @@ class _LoginPageState extends State<LoginPage> {
             'The phone number you entered is too long for the country: $countryName.',
       );
     }
+    ref.read(authControllerProvider).sendSmsCode(
+          context: context,
+          phoneNumber: '+$countryCode $phoneNumber',
+        );
   }
 
   showCountryCodePicker() {
@@ -80,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       onSelect: (country) {
         countryNameController.text = country.name;
-        countryCodeController.text = country.countryCode;
+        countryCodeController.text = country.phoneCode;
       },
     );
   }
@@ -89,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     countryNameController = TextEditingController(text: 'Pakistan');
 
-    countryCodeController = TextEditingController(text: 'Pk');
+    countryCodeController = TextEditingController(text: '92');
 
     phoneNumberController = TextEditingController();
 
@@ -134,19 +141,20 @@ class _LoginPageState extends State<LoginPage> {
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                  text: 'WhatsApp will need to verify your phone number ',
-                  style: TextStyle(
-                    color: context.color.greyColor,
-                    height: 1.5,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'Whats my number?',
-                      style: TextStyle(
-                        color: context.color.blueColor,
-                      ),
-                    )
-                  ]),
+                text: 'WhatsApp will need to verify your phone number ',
+                style: TextStyle(
+                  color: context.color.greyColor,
+                  height: 1.5,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'Whats my number?',
+                    style: TextStyle(
+                      color: context.color.blueColor,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           const SizedBox(

@@ -40,7 +40,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
               height: 40,
             ),
             Container(
-              padding: EdgeInsets.all(26),
+              padding: const EdgeInsets.all(26),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: context.color.photoIconBgColor,
