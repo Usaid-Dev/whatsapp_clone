@@ -44,7 +44,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
       temp.add(
         FutureBuilder(
           future: asset.thumbnailDataWithSize(
-            ThumbnailSize(200, 200),
+            const ThumbnailSize(200, 200),
           ),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
@@ -55,7 +55,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
                   borderRadius: BorderRadius.circular(5),
                   splashFactory: NoSplash.splashFactory,
                   child: Container(
-                    margin: EdgeInsets.all(2),
+                    margin: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: context.color.greyColor!.withOpacity(0.4),
@@ -73,7 +73,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
                 ),
               );
             }
-            return SizedBox();
+            return const SizedBox();
           },
         ),
       );
@@ -114,7 +114,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification scroll) {
             handleScrollEvent(scroll);
@@ -122,8 +122,8 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
           },
           child: GridView.builder(
             itemCount: imageList.length,
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3),
             itemBuilder: (_, index) {
               return imageList[index];
             },
