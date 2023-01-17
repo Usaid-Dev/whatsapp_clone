@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
-
 class CustomIconButton extends StatelessWidget {
   final VoidCallback onTap;
   final IconData icon;
@@ -42,7 +40,7 @@ class CustomIconButton extends StatelessWidget {
         ),
         icon: Icon(
           icon,
-          color: iconColor ?? context.color.greyColor,
+          color: iconColor ?? Theme.of(context).appBarTheme.iconTheme!.color,
         ),
       ),
     );
