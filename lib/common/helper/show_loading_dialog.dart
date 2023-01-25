@@ -22,7 +22,7 @@ showLoadingDialog(
                     message,
                     style: TextStyle(
                         fontSize: 15,
-                        color: context.color.greyColor,
+                        color: context.theme.greyColor,
                         height: 1.5),
                   ),
                 ),

@@ -13,14 +13,14 @@ class PrivacyAndTerms extends StatelessWidget {
         text: TextSpan(
           text: 'Read our ',
           style: TextStyle(
-            color: context.color.greyColor,
+            color: context.theme.greyColor,
             height: 1.5,
           ),
           children: [
             TextSpan(
               text: 'Privacy Policy',
               style: TextStyle(
-                color: context.color.blueColor,
+                color: context.theme.blueColor,
               ),
             ),
             const TextSpan(
@@ -29,7 +29,7 @@ class PrivacyAndTerms extends StatelessWidget {
             TextSpan(
               text: 'Terms of Services',
               style: TextStyle(
-                color: context.color.blueColor,
+                color: context.theme.blueColor,
               ),
             ),
           ],

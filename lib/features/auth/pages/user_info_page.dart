@@ -70,7 +70,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                 ),
                 const Spacer(),
                 CustomIconButton(
-                  onTap: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pop(context),
                   icon: Icons.close,
                 ),
                 const SizedBox(
@@ -79,7 +79,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
               ],
             ),
             Divider(
-              color: context.color.greyColor!.withOpacity(0.3),
+              color: context.theme.greyColor!.withOpacity(0.3),
             ),
             const SizedBox(
               height: 5,
@@ -149,12 +149,12 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
     return Column(
       children: [
         CustomIconButton(
-          onTap: onTap,
+          onPressed: onTap,
           icon: icon,
           iconColor: Coloors.greenDark,
           minWidth: 50,
           border: Border.all(
-            color: context.color.greyColor!.withOpacity(.2),
+            color: context.theme.greyColor!.withOpacity(.2),
             width: 1,
           ),
         ),
@@ -164,7 +164,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
         Text(
           text,
           style: TextStyle(
-            color: context.color.greyColor,
+            color: context.theme.greyColor,
           ),
         ),
       ],
@@ -192,7 +192,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
         title: Text(
           'Profile info',
           style: TextStyle(
-            color: context.color.authAppbarTextColor,
+            color: context.theme.authAppbarTextColor,
           ),
         ),
         centerTitle: true,
@@ -205,7 +205,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
               'Please provide your name and an optional profile photo',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: context.color.greyColor,
+                color: context.theme.greyColor,
               ),
             ),
             const SizedBox(
@@ -217,11 +217,11 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                 padding: const EdgeInsets.all(26),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: context.color.photoIconBgColor,
+                  color: context.theme.photoIconBgColor,
                   border: Border.all(
                     color: imageCamera == null && imageGallery == null
                         ? Colors.transparent
-                        : context.color.greyColor!.withOpacity(0.4),
+                        : context.theme.greyColor!.withOpacity(0.4),
                   ),
                   image: imageCamera != null ||
                           imageGallery != null ||
@@ -247,7 +247,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                     color: imageCamera == null &&
                             imageGallery == null &&
                             widget.profileImageUrl == null
-                        ? context.color.photoIconColor
+                        ? context.theme.photoIconColor
                         : Colors.transparent,
                   ),
                 ),
@@ -274,7 +274,7 @@ class _UserInfoPageState extends ConsumerState<UserInfoPage> {
                 ),
                 Icon(
                   Icons.emoji_emotions_outlined,
-                  color: context.color.photoIconColor,
+                  color: context.theme.photoIconColor,
                 ),
                 const SizedBox(
                   width: 20,

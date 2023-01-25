@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomIconButton extends StatelessWidget {
-  final VoidCallback onTap;
-  final IconData icon;
-  final Color? iconColor;
-  final double? iconSize;
-  final double? minWidth;
-  final Color? background;
-  final BoxBorder? border;
-
   const CustomIconButton({
     Key? key,
-    required this.onTap,
+    required this.onPressed,
     required this.icon,
     this.iconColor,
     this.iconSize,
@@ -19,6 +11,14 @@ class CustomIconButton extends StatelessWidget {
     this.background,
     this.border,
   }) : super(key: key);
+
+  final VoidCallback onPressed;
+  final IconData icon;
+  final Color? iconColor;
+  final double? iconSize;
+  final double? minWidth;
+  final Color? background;
+  final BoxBorder? border;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
         border: border,
       ),
       child: IconButton(
-        onPressed: onTap,
+        onPressed: onPressed,
         splashColor: Colors.transparent,
         splashRadius: (minWidth ?? 45) - 25,
         iconSize: iconSize ?? 22,
@@ -40,7 +40,7 @@ class CustomIconButton extends StatelessWidget {
         ),
         icon: Icon(
           icon,
-          color: iconColor ?? Theme.of(context).appBarTheme.iconTheme!.color,
+          color: iconColor ?? Theme.of(context).appBarTheme.iconTheme?.color,
         ),
       ),
     );

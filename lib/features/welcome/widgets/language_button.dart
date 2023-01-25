@@ -19,7 +19,7 @@ class LanguageButton extends StatelessWidget {
                 height: 4,
                 width: 30,
                 decoration: BoxDecoration(
-                  color: context.color.greyColor!.withOpacity(0.4),
+                  color: context.theme.greyColor!.withOpacity(0.4),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -32,7 +32,7 @@ class LanguageButton extends StatelessWidget {
                     width: 20,
                   ),
                   CustomIconButton(
-                    onTap: () {
+                    onPressed: () {
                       Navigator.of(context).pop();
                     },
                     icon: Icons.close_outlined,
@@ -53,7 +53,7 @@ class LanguageButton extends StatelessWidget {
                 height: 10,
               ),
               Divider(
-                color: context.color.greyColor!.withOpacity(0.3),
+                color: context.theme.greyColor!.withOpacity(0.3),
                 thickness: .5,
               ),
               RadioListTile(
@@ -65,7 +65,7 @@ class LanguageButton extends StatelessWidget {
                 subtitle: Text(
                   'phone language',
                   style: TextStyle(
-                    color: context.color.greyColor,
+                    color: context.theme.greyColor,
                   ),
                 ),
               ),
@@ -79,13 +79,13 @@ class LanguageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: context.color.langBtnBgColor,
+      color: context.theme.langBtnBgColor,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         onTap: () => showBottomSheet(context),
         borderRadius: BorderRadius.circular(20),
         splashFactory: NoSplash.splashFactory,
-        highlightColor: context.color.langBtnHighlightColor,
+        highlightColor: context.theme.langBtnHighlightColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(

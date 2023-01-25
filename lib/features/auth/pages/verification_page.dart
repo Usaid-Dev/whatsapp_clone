@@ -38,13 +38,13 @@ class VerificationPage extends ConsumerWidget {
         title: Text(
           'Verify your number',
           style: TextStyle(
-            color: context.color.authAppbarTextColor,
+            color: context.theme.authAppbarTextColor,
           ),
         ),
         centerTitle: true,
         actions: [
           CustomIconButton(
-            onTap: () {},
+            onPressed: () {},
             icon: Icons.more_vert,
           ),
         ],
@@ -62,7 +62,7 @@ class VerificationPage extends ConsumerWidget {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyle(color: context.color.greyColor, height: 1.5),
+                  style: TextStyle(color: context.theme.greyColor, height: 1.5),
                   children: [
                     const TextSpan(
                       text:
@@ -71,7 +71,7 @@ class VerificationPage extends ConsumerWidget {
                     TextSpan(
                       text: ' Wrong number ? ',
                       style: TextStyle(
-                        color: context.color.blueColor,
+                        color: context.theme.blueColor,
                       ),
                     ),
                   ],
@@ -101,7 +101,7 @@ class VerificationPage extends ConsumerWidget {
             Text(
               'Enter 6-digit code',
               style: TextStyle(
-                color: context.color.greyColor,
+                color: context.theme.greyColor,
               ),
             ),
             const SizedBox(
@@ -111,14 +111,14 @@ class VerificationPage extends ConsumerWidget {
               children: [
                 Icon(
                   Icons.message,
-                  color: context.color.greyColor,
+                  color: context.theme.greyColor,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Text(
                   'Resend SMS',
-                  style: TextStyle(color: context.color.greyColor),
+                  style: TextStyle(color: context.theme.greyColor),
                 ),
               ],
             ),
@@ -126,20 +126,20 @@ class VerificationPage extends ConsumerWidget {
               height: 10,
             ),
             Divider(
-              color: context.color.blueColor!.withOpacity(0.2),
+              color: context.theme.blueColor!.withOpacity(0.2),
             ),
             Row(
               children: [
                 Icon(
                   Icons.call,
-                  color: context.color.greyColor,
+                  color: context.theme.greyColor,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Text(
                   'Call',
-                  style: TextStyle(color: context.color.greyColor),
+                  style: TextStyle(color: context.theme.greyColor),
                 ),
               ],
             ),

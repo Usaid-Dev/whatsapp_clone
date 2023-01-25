@@ -58,7 +58,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
                     margin: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: context.color.greyColor!.withOpacity(0.4),
+                        color: context.theme.greyColor!.withOpacity(0.4),
                         width: 1,
                       ),
                       image: DecorationImage(
@@ -97,18 +97,18 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
         backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0,
         leading: CustomIconButton(
-          onTap: () => Navigator.pop(context),
+          onPressed: () => Navigator.pop(context),
           icon: Icons.arrow_back,
         ),
         title: Text(
           'WhatsApp',
           style: TextStyle(
-            color: context.color.authAppbarTextColor,
+            color: context.theme.authAppbarTextColor,
           ),
         ),
         actions: [
           CustomIconButton(
-            onTap: () {},
+            onPressed: () {},
             icon: Icons.more_vert,
           ),
         ],

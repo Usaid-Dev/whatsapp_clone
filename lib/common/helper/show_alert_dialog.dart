@@ -9,7 +9,7 @@ showAlertDialog(
       return AlertDialog(
         content: Text(
           message,
-          style: TextStyle(color: context.color.greyColor, fontSize: 15),
+          style: TextStyle(color: context.theme.greyColor, fontSize: 15),
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         actions: [
@@ -21,7 +21,7 @@ showAlertDialog(
             child: Text(
               btnText ?? 'OK',
               style: TextStyle(
-                color: context.color.circleImageColor,
+                color: context.theme.circleImageColor,
               ),
             ),
           ),

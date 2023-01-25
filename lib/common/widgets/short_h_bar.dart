@@ -15,7 +15,7 @@ class ShortHBar extends StatelessWidget {
       width: width ?? 25,
       margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-        color: color ?? context.color.greyColor!.withOpacity(0.2),
+        color: color ?? context.theme.greyColor!.withOpacity(0.2),
         borderRadius: BorderRadius.circular(5),
       ),
     );

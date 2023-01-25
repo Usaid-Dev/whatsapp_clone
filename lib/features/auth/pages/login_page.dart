@@ -65,9 +65,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         backgroundColor: Theme.of(context).backgroundColor,
         flagSize: 22,
         borderRadius: BorderRadius.circular(20),
-        textStyle: TextStyle(color: context.color.greyColor),
+        textStyle: TextStyle(color: context.theme.greyColor),
         inputDecoration: InputDecoration(
-          labelStyle: TextStyle(color: context.color.greyColor),
+          labelStyle: TextStyle(color: context.theme.greyColor),
           prefixIcon: const Icon(
             Icons.language,
             color: Coloors.greenDark,
@@ -75,7 +75,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           hintText: 'Search country code or name',
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: context.color.greyColor!.withOpacity(0.2),
+              color: context.theme.greyColor!.withOpacity(0.2),
             ),
           ),
           focusedBorder: const UnderlineInputBorder(
@@ -123,13 +123,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         title: Text(
           'Enter your phone number',
           style: TextStyle(
-            color: context.color.authAppbarTextColor,
+            color: context.theme.authAppbarTextColor,
           ),
         ),
         centerTitle: true,
         actions: [
           CustomIconButton(
-            onTap: () {},
+            onPressed: () {},
             icon: Icons.more_vert,
           ),
         ],
@@ -143,14 +143,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               text: TextSpan(
                 text: 'WhatsApp will need to verify your phone number ',
                 style: TextStyle(
-                  color: context.color.greyColor,
+                  color: context.theme.greyColor,
                   height: 1.5,
                 ),
                 children: [
                   TextSpan(
                     text: 'Whats my number?',
                     style: TextStyle(
-                      color: context.color.blueColor,
+                      color: context.theme.blueColor,
                     ),
                   )
                 ],
@@ -208,7 +208,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           Text(
             'Carrier charges may apply',
             style: TextStyle(
-              color: context.color.greyColor,
+              color: context.theme.greyColor,
             ),
           )
         ],

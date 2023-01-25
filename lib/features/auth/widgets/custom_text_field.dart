@@ -46,7 +46,7 @@ class CustomTextField extends StatelessWidget {
         prefixText: prefixText,
         suffix: suffixIcon,
         hintText: hintText,
-        hintStyle: TextStyle(color: context.color.greyColor),
+        hintStyle: TextStyle(color: context.theme.greyColor),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Coloors.greenDark),
         ),

@@ -21,8 +21,8 @@ class HomePage extends StatelessWidget {
           ),
           elevation: 1,
           actions: [
-            CustomIconButton(onTap: () {}, icon: Icons.search),
-            CustomIconButton(onTap: () {}, icon: Icons.more_vert),
+            CustomIconButton(onPressed: () {}, icon: Icons.search),
+            CustomIconButton(onPressed: () {}, icon: Icons.more_vert),
           ],
           bottom: const TabBar(
             indicatorWeight: 3,
