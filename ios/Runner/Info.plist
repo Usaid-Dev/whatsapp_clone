@@ -37,12 +37,12 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>To capture profile photo please grant camera access</string>
+	<key>NSContactsUsageDescription</key>
+	<string>To access the contact list</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library Usage</string>
-	<key>NSCameraUsageDescription</key>
-    <string>To capture profile photo please grant camera access</string>
-	<key>NSContactsUsageDescription</key>
-    <string>To access the contact list</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
