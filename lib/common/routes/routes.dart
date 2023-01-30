@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:whatsapp_clone/features/chat/pages/profile_page.dart';
 
 import '../../features/auth/pages/login_page.dart';
 import '../../features/auth/pages/user_info_page.dart';
@@ -17,6 +19,7 @@ class Routes {
   static const String home = 'home';
   static const String contact = 'contact';
   static const String chat = 'chat';
+  static const String profile = 'profile';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -55,6 +58,13 @@ class Routes {
         final UserModel user = settings.arguments as UserModel;
         return MaterialPageRoute(
           builder: (context) => ChatPage(user: user),
+        );
+      case profile:
+        final UserModel user = settings.arguments as UserModel;
+        return PageTransition(
+          child: ProfilePage(user: user),
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 800),
         );
 
       default:
