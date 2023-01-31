@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
 
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
-import 'package:whatsapp_clone/common/widgets/custom_icon_button.dart';
-import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp_clone/features/auth/widgets/custom_text_field.dart';
+import '../../../common/widgets/custom_icon_button.dart';
+import '../controller/auth_controller.dart';
+import '../widgets/custom_text_field.dart';
 
 class VerificationPage extends ConsumerWidget {
   const VerificationPage({

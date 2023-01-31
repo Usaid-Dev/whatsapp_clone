@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
-import 'package:whatsapp_clone/common/utils/coloors.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
+import '../utils/coloors.dart';
 
 showLoadingDialog(
     {required BuildContext context, required String message}) async {

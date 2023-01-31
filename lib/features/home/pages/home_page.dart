@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone/common/widgets/custom_icon_button.dart';
-import 'package:whatsapp_clone/features/home/pages/call_home_page.dart';
-import 'package:whatsapp_clone/features/home/pages/chat_home_page.dart';
-import 'package:whatsapp_clone/features/home/pages/status_home_page.dart';
+import 'package:whatsapp_messenger/features/home/pages/status_home_page.dart';
 
+import '../../../common/widgets/custom_icon_button.dart';
 import '../../auth/controller/auth_controller.dart';
+import 'call_home_page.dart';
+import 'chat_home_page.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

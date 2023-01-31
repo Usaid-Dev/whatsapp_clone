@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:whatsapp_clone/features/chat/pages/profile_page.dart';
 
 import '../../features/auth/pages/login_page.dart';
 import '../../features/auth/pages/user_info_page.dart';
 import '../../features/auth/pages/verification_page.dart';
 import '../../features/chat/pages/chat_page.dart';
+import '../../features/chat/pages/profile_page.dart';
 import '../../features/contact/pages/contact_page.dart';
 import '../../features/home/pages/home_page.dart';
 import '../../features/welcome/pages/welcome_page.dart';

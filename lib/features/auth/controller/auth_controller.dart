@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp_clone/features/auth/repositories/auth_repository.dart';
-import 'package:whatsapp_clone/models/user_model.dart';
+
+import '../../../models/user_model.dart';
+import '../repositories/auth_repository.dart';
 
 final authControllerProvider = Provider(
   (ref) {

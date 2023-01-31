@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
 import '../../../common/routes/routes.dart';
 import '../../../common/utils/coloors.dart';
 import '../../../common/widgets/custom_icon_button.dart';

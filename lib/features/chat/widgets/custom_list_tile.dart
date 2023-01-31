@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({

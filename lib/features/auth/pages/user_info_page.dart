@@ -3,15 +3,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
-import 'package:whatsapp_clone/common/helper/show_alert_dialog.dart';
-import 'package:whatsapp_clone/common/utils/coloors.dart';
-import 'package:whatsapp_clone/common/widgets/custom_elevated_button.dart';
-import 'package:whatsapp_clone/common/widgets/custom_icon_button.dart';
-import 'package:whatsapp_clone/common/widgets/short_h_bar.dart';
-import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp_clone/features/auth/pages/image_picker_page.dart';
-import 'package:whatsapp_clone/features/auth/widgets/custom_text_field.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
+
+import '../../../common/helper/show_alert_dialog.dart';
+import '../../../common/utils/coloors.dart';
+import '../../../common/widgets/custom_elevated_button.dart';
+import '../../../common/widgets/custom_icon_button.dart';
+import '../../../common/widgets/short_h_bar.dart';
+import '../controller/auth_controller.dart';
+import '../widgets/custom_text_field.dart';
+import 'image_picker_page.dart';
 
 class UserInfoPage extends ConsumerStatefulWidget {
   const UserInfoPage({super.key, this.profileImageUrl});

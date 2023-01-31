@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
-import 'package:whatsapp_clone/common/utils/coloors.dart';
+import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
+
+import '../../../common/utils/coloors.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
