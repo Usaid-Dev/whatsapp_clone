@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:custom_clippers/custom_clippers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:whatsapp_messenger/common/extension/custom_theme_extension.dart';
 import '../../../common/helper/last_seen_message.dart';
 import '../../../common/routes/routes.dart';
@@ -125,66 +129,104 @@ class ChatPage extends ConsumerWidget {
             fit: BoxFit.cover,
             color: context.theme.chatPageDoodleColor,
           ),
-          Column(
-            children: [
-              Expanded(
-                child: StreamBuilder(
-                  stream: ref
-                      .watch(chatControllerProvider)
-                      .getAllOneToOneMessage(user.uid),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState != ConnectionState.active) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 60),
+            child: StreamBuilder(
+              stream: ref
+                  .watch(chatControllerProvider)
+                  .getAllOneToOneMessage(user.uid),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState != ConnectionState.active) {
+                  return ListView.builder(
+                    itemCount: 15,
+                    itemBuilder: (_, index) {
+                      final random = Random().nextInt(14);
+                      return Container(
+                        alignment: random.isEven
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        margin: EdgeInsets.only(
+                          top: 5,
+                          bottom: 5,
+                          left: random.isEven ? 150 : 15,
+                          right: random.isEven ? 15 : 150,
+                        ),
+                        child: ClipPath(
+                          clipper: UpperNipMessageClipperTwo(
+                            random.isEven
+                                ? MessageType.send
+                                : MessageType.receive,
+                            nipWidth: 8,
+                            nipHeight: 10,
+                            bubbleRadius: 12,
+                          ),
+                          child: Shimmer.fromColors(
+                            baseColor: random.isEven
+                                ? context.theme.greyColor!.withOpacity(.3)
+                                : context.theme.greyColor!.withOpacity(.2),
+                            highlightColor: random.isEven
+                                ? context.theme.greyColor!.withOpacity(.4)
+                                : context.theme.greyColor!.withOpacity(.3),
+                            child: Container(
+                              height: 40,
+                              width:
+                                  170 + double.parse((random * 2).toString()),
+                              color: Colors.red,
+                            ),
+                          ),
+                        ),
                       );
-                    }
-                    return PageStorage(
-                      bucket: pageStorageBucket,
-                      child: ListView.builder(
-                        key: const PageStorageKey('chat_page_list'),
-                        itemCount: snapshot.data!.length,
-                        shrinkWrap: true,
-                        controller: scrollController,
-                        itemBuilder: (_, index) {
-                          final message = snapshot.data![index];
-                          final isSender = message.senderId ==
-                              FirebaseAuth.instance.currentUser!.uid;
+                    },
+                  );
+                }
+                return PageStorage(
+                  bucket: pageStorageBucket,
+                  child: ListView.builder(
+                    key: const PageStorageKey('chat_page_list'),
+                    itemCount: snapshot.data!.length,
+                    shrinkWrap: true,
+                    controller: scrollController,
+                    itemBuilder: (_, index) {
+                      final message = snapshot.data![index];
+                      final isSender = message.senderId ==
+                          FirebaseAuth.instance.currentUser!.uid;
 
-                          final haveNip = (index == 0) ||
-                              (index == snapshot.data!.length - 1 &&
-                                  message.senderId !=
-                                      snapshot.data![index - 1].senderId) ||
-                              (message.senderId !=
-                                      snapshot.data![index - 1].senderId &&
-                                  message.senderId ==
-                                      snapshot.data![index + 1].senderId) ||
-                              (message.senderId !=
-                                      snapshot.data![index - 1].senderId &&
-                                  message.senderId !=
-                                      snapshot.data![index + 1].senderId);
+                      final haveNip = (index == 0) ||
+                          (index == snapshot.data!.length - 1 &&
+                              message.senderId !=
+                                  snapshot.data![index - 1].senderId) ||
+                          (message.senderId !=
+                                  snapshot.data![index - 1].senderId &&
+                              message.senderId ==
+                                  snapshot.data![index + 1].senderId) ||
+                          (message.senderId !=
+                                  snapshot.data![index - 1].senderId &&
+                              message.senderId !=
+                                  snapshot.data![index + 1].senderId);
 
-                          return Column(
-                            children: [
-                              if (index == 0) const YellowCard(),
-                              MessageCard(
-                                isSender: isSender,
-                                haveNip: haveNip,
-                                message: message,
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ),
-              ChatTextField(
-                receiverId: user.uid,
-                scrollController: scrollController,
-              ),
-            ],
-          )
+                      return Column(
+                        children: [
+                          if (index == 0) const YellowCard(),
+                          MessageCard(
+                            isSender: isSender,
+                            haveNip: haveNip,
+                            message: message,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+          Container(
+            alignment: Alignment(0, 1),
+            child: ChatTextField(
+              receiverId: user.uid,
+              scrollController: scrollController,
+            ),
+          ),
         ],
       ),
     );
