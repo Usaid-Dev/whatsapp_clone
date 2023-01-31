@@ -15,6 +15,7 @@ import '../../auth/controller/auth_controller.dart';
 import '../controllers/chat_controller.dart';
 import '../widgets/chat_text_field.dart';
 import '../widgets/message_card.dart';
+import '../widgets/show_date_card.dart';
 import '../widgets/yellow_card.dart';
 
 final pageStorageBucket = PageStorageBucket();
@@ -204,9 +205,20 @@ class ChatPage extends ConsumerWidget {
                               message.senderId !=
                                   snapshot.data![index + 1].senderId);
 
+                      final isShowDateCard = (index == 0) ||
+                          ((index == snapshot.data!.length - 1) &&
+                              (message.timeSent.day >
+                                  snapshot.data![index - 1].timeSent.day)) ||
+                          (message.timeSent.day >
+                                  snapshot.data![index - 1].timeSent.day &&
+                              message.timeSent.day <=
+                                  snapshot.data![index + 1].timeSent.day);
+
                       return Column(
                         children: [
                           if (index == 0) const YellowCard(),
+                          if (isShowDateCard)
+                            ShowDateCard(date: message.timeSent),
                           MessageCard(
                             isSender: isSender,
                             haveNip: haveNip,
@@ -221,7 +233,7 @@ class ChatPage extends ConsumerWidget {
             ),
           ),
           Container(
-            alignment: Alignment(0, 1),
+            alignment: const Alignment(0, 1),
             child: ChatTextField(
               receiverId: user.uid,
               scrollController: scrollController,
